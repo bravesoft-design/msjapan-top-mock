@@ -42,6 +42,8 @@ var SALT = "hqAR4ym+ZyTJCTwChsyCiA==", ITER = 150000, PROBE = "2c6a6448297044019
 var b2u = function(b){ var s=atob(b), u=new Uint8Array(s.length); for(var i=0;i<s.length;i++) u[i]=s.charCodeAt(i); return u; };
 var next = new URLSearchParams(location.search).get("next") || "";
 if(!/^[?#]/.test(next)) next = "";
+var go = new URLSearchParams(location.search).get("go") || "";
+if(!/^[A-Za-z0-9_./-]+.html([?#][^s]*)?$/.test(go) || /^/|../.test(go)) go = "";
 
 async function deriveRaw(pass){
   var base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pass), "PBKDF2", false, ["deriveBits"]);
@@ -69,7 +71,7 @@ async function open_(pass){
     setTimeout(res, 3000);
   });
   try { localStorage.setItem(PW_KEY, pass); } catch(e) {}
-  location.replace("app/index.html" + next);
+  location.replace(go ? "app/" + go : "app/index.html" + next);
 }
 document.getElementById("eye").addEventListener("click", function(){
   var p = document.getElementById("p"), show = p.type === "password";
