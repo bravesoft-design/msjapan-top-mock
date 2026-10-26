@@ -43,7 +43,7 @@ var b2u = function(b){ var s=atob(b), u=new Uint8Array(s.length); for(var i=0;i<
 var next = new URLSearchParams(location.search).get("next") || "";
 if(!/^[?#]/.test(next)) next = "";
 var go = new URLSearchParams(location.search).get("go") || "";
-if(["index.html","alt.html"].indexOf(go.split(/[?#]/)[0]) < 0) go = "";
+if(["index.html","alt.html","d.html"].indexOf(go.split(/[?#]/)[0]) < 0) go = "";
 
 async function deriveRaw(pass){
   var base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pass), "PBKDF2", false, ["deriveBits"]);
