@@ -1,4 +1,4 @@
-// MS-Japan 総合TOP（ワイヤー） — 暗号化ファイルを復号して返す Service Worker（build mvov6ax2）
+// MS-Japan 総合TOP（ワイヤー） — 暗号化ファイルを復号して返す Service Worker（build mvowmdxe）
 const SALT = "hqAR4ym+ZyTJCTwChsyCiA==";
 const KEY_URL = "./__key__";
 const TYPES = { html:"text/html; charset=utf-8", js:"text/javascript; charset=utf-8", mjs:"text/javascript; charset=utf-8",
